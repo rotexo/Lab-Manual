@@ -1,0 +1,62 @@
+\fussy
+%\sloppy
+
+% Package includes
+%\usepackage{setspace}
+%	\onehalfspacing
+% \usepackage[margin={1in, 1in}]{geometry}
+\usepackage{natbib}
+	\bibpunct[: ]{(}{)}{;}{a}{,}{,} 
+\usepackage{graphicx}
+%\usepackage{amssymb}
+\usepackage{color}
+\usepackage{subfigure}
+\usepackage{amsmath,amssymb}
+\usepackage{rotating}
+\usepackage{booktabs}
+\usepackage{lscape}
+\usepackage[hang, bf, small]{caption}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{nomencl}
+\makeglossary % required by nomencl
+\usepackage{makeidx}
+\makeindex % required by makeidx
+
+\usepackage[Conny]{fncychap}
+\ChTitleVar{\centering\Huge\mdseries\sffamily}
+\ChRuleWidth{1pt}
+\usepackage{fancyhdr}
+	\lhead{}
+\usepackage[french, thinspaces]{fancynum}	
+\usepackage[thmmarks]{ntheorem}
+	\theoremstyle{plain}
+	%\theorembodyfont{\upshape}
+	\theoremsymbol{\ensuremath{\rule{0.3em}{0.3em}}}
+	\theoremseparator{:}
+	\theoremindent 1cm
+
+%\usepackage[all]{xy}
+\DeclareGraphicsExtensions{.jpg, .pdf, .mps, .png}
+\graphicspath{{graph/}}
+
+% command - typesetting in text
+\newcommand\tagname[1]{{\scshape \small #1}}
+\newcommand\console[1]{\ttfamily #1}
+% commands - graphics
+\newcommand{\fullwidth}{0.7\textwidth}
+\newcommand{\halfwidth}{0.4\textwidth}
+
+% commands - equations
+\renewcommand\({\begin{equation}}
+\renewcommand\){\end{equation}}
+\renewcommand\deg{\ensuremath{^\circ}}
+
+\newcommand{\eindex}[1]{\emph{#1}\index{#1}}
+\newtheorem{example}{Example}[chapter]
+\newenvironment{overview}{\begin{quote}}{\end{quote}}
+
+% Title and author definitions
+\newcommand\thetitle{Process Control Laboratory Handbook}
+\title{\thetitle}
+\newcommand\theauthor{Lourens du Plessis and Carl Sandrock}

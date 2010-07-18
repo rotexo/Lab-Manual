@@ -1,0 +1,95 @@
+\documentclass{article}
+%\ProvidesPackage{PMCLogos}
+\usepackage[T1]{fontenc}
+\usepackage{fix-cm}
+\usepackage{mathptmx}
+\usepackage{tikz}
+\usepackage{calc}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{fadings}
+\usetikzlibrary{shadows}
+
+\newcommand{\BaseDim}{100pt}
+\providecolor{DarkBlue}{RGB}{0,50,255}
+\providecolor{LightBlue}{RGB}{180,180,255}
+\providecolor{DarkRed}{RGB}{255,5,5}
+\providecolor{LightRed}{RGB}{255,210,210}
+\providecolor{LineDarkRed}{RGB}{255,5,5}
+\providecolor{LineLightRed}{RGB}{255,210,210}
+\providecolor{DarkYellow}{RGB}{255,255,0}
+\providecolor{LightYellow}{RGB}{255,255,210}
+% Colours in the original Logo
+% Blue range : Red 0 Green 48 Blue 255 -> Red 199 Green 210 Blue 255 
+% Red Range : Red 253 Green 4 Blue 4 -> Red 255 Green 211 Blue 211 
+% Yellow Range : Red 255 Green 254 Blue 206 -> Red 255 Green 255 Blue 0 
+% Black range : Red 0 Green 0 Blue 0 -> Red 1 Green 1 Blue 1 
+% Red line : Red 255 Green 
+
+% \renewcommand{\rmdefault}{ptm}
+\newcommand{\FontYDim}{86pt}
+\newcommand{\FontXDim}{103pt}
+\newcommand{\AmpersYDim}{42}
+\newcommand{\AmpersXDim}{50}
+\newcommand{\AmpersShift}{15pt}
+\begin{document}
+
+% epigrafica perhaps or palatino times lx fonts
+\begin{tikzpicture}
+% \draw[step=0.05*\BaseDim, color=gray] (-2*\BaseDim,-1*\BaseDim) grid (2*\BaseDim,1*\BaseDim);
+% \draw[thick] (-2*\BaseDim,0) -- (2*\BaseDim,0) (0,-1*\BaseDim) -- (0,1*\BaseDim);
+\node[opacity=1] at (0,0) {\includegraphics[scale=0.6]{pmclogo}};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\shade[right color=DarkRed,left color=LightRed,shading angle=105,opacity=0.9] (-1.72*\BaseDim,-0.64*\BaseDim) rectangle (-0.469*\BaseDim,0.118*\BaseDim);% could use transparent!50 instead of opacity
+\shade[left color=DarkBlue,right color=LightBlue,opacity=0.9] (-1.505*\BaseDim,-0.115*\BaseDim) rectangle (-0.215*\BaseDim,0.64*\BaseDim);
+\shade[left color=DarkYellow,right color=LightYellow,opacity=0.9] (-0.895*\BaseDim,-0.41*\BaseDim) rectangle (0.4*\BaseDim,0.35*\BaseDim);
+\shade[left color=black,right color=white] (-1.47*\BaseDim,-0.274*\BaseDim) rectangle (1.65*\BaseDim,-0.206*\BaseDim);
+\draw[fill=black] (-1.105*\BaseDim,-0.729*\BaseDim) rectangle (-1.065*\BaseDim,0.805*\BaseDim);
+\node[opacity=0.35] at (0.3*\BaseDim,0.28*\BaseDim){\fontsize{\FontYDim}{\FontXDim} \selectfont PM\raise\AmpersShift\hbox{\fontsize{\AmpersYDim}{\AmpersXDim}\selectfont\&}\fontsize{\FontYDim}{\FontXDim}\selectfont C};%\usefont{enc}{family}{series}{shape} 
+\node at (0.28*\BaseDim,0.3*\BaseDim){\fontsize{\FontYDim}{\FontXDim} \selectfont PM\raise\AmpersShift\hbox{\fontsize{\AmpersYDim}{\AmpersXDim}\selectfont\&}\fontsize{\FontYDim}{\FontXDim}\selectfont C};%\usefont{enc}{family}{series}{shape} 
+\end{tikzpicture}
+
+\begin{tikzfadingfrompicture}[name=RedFade]
+\shade[right color=transparent!0,left color=transparent!100,shading angle=105] (-1.72*\BaseDim,-0.64*\BaseDim) rectangle (-0.469*\BaseDim,0.118*\BaseDim);% could use transparent!50 instead of opacity
+\end{tikzfadingfrompicture}
+\begin{tikzfadingfrompicture}[name=BlueFade]
+\shade[left color=DarkBlue,right color=LightBlue] (-1.505*\BaseDim,-0.115*\BaseDim) rectangle (-0.215*\BaseDim,0.64*\BaseDim);
+\end{tikzfadingfrompicture}
+\begin{tikzfadingfrompicture}[name=YellowFade]
+\shade[left color=DarkYellow,right color=LightYellow] (-0.895*\BaseDim,-0.41*\BaseDim) rectangle (0.4*\BaseDim,0.35*\BaseDim);
+\end{tikzfadingfrompicture}
+
+\begin{tikzpicture}
+\shade[path fading=RedFade,right color=DarkRed,left color=LightRed,shading angle=105] (-1.72*\BaseDim,-0.64*\BaseDim) rectangle (-0.469*\BaseDim,0.118*\BaseDim);% could use transparent!50 instead of opacity
+\shade[path fading=BlueFade,left color=DarkBlue,right color=LightBlue] (-1.505*\BaseDim,-0.115*\BaseDim) rectangle (-0.215*\BaseDim,0.64*\BaseDim);
+\shade[path fading=YellowFade,left color=DarkYellow,right color=LightYellow] (-0.895*\BaseDim,-0.41*\BaseDim) rectangle (0.4*\BaseDim,0.35*\BaseDim);
+\shade[left color=black,right color=white,opacity=1] (-1.47*\BaseDim,-0.274*\BaseDim) rectangle (1.65*\BaseDim,-0.206*\BaseDim);
+\draw[fill=black,opacity=1] (-1.105*\BaseDim,-0.729*\BaseDim) rectangle (-1.065*\BaseDim,0.805*\BaseDim);
+\node at (0.3*\BaseDim,0.28*\BaseDim){\fontsize{\FontYDim}{\FontXDim} \selectfont PM\raise\AmpersShift\hbox{\fontsize{\AmpersYDim}{\AmpersXDim}\selectfont\&}\fontsize{\FontYDim}{\FontXDim}\selectfont C};%\usefont{enc}{family}{series}{shape} 
+\end{tikzpicture}
+  
+\end{document}
+
+%% Notes 
+
+% For including the logo as a page title or as a water mark ?
+% 
+% \begin{tikzpicture}[remember picture, overlay]
+%     \node[inner sep=0pt] at (current page.center) {%
+%         \includegraphics[width=\paperwidth,height=\paperheight]{img/rblend}%
+%     };%
+% \end{tikzpicture}
+
+%% Scrap Code
+
+% \definecolor{red}{rgb}{1,0,0}
+% \providecolor [type]{name}{model-list}{spec-list}
+% \definecolor[type]{name}{model\definecolor -list}{spec-list}
+% \color{rgb:-green!40!yellow,3;green!40!yellow,2;red,1}
+
+% \begin{tikzpicture}
+% \includegraphics[width=10em,height=10em]{pmclogo}
+% \draw[step=0.1] (-1,-1) grid (1,1);
+% \shade[top color=blue!30,bottom color=white, shading angle=30]  (0,0) rectangle (1,1);
+% \end{tikzpicture}

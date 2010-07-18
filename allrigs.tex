@@ -1,0 +1,27 @@
+\chapter{Rigs}
+\section{General}
+There are five rigs in the process control labs.  Each has unique control difficulties.  The following sections will describe how to connect MATLAB to the rigs, how each rig functions and basic procedures to follow.  The procedures described are
+\begin{description}
+	\item [Commissioning] This procedure is meant to be followed after the rig has been decommissioned at the end of a semester and has been standing for a period without maintenance.  During this operation, constant supervision of the rig is required to ensure that no leaks or other failures occur.
+	\item [Wet startup] This procedure is to start the rig after it has been commissioned.
+	\item [Shutdown] When the rig is to be used again within the near future, only a shutdown is required.
+	\item [Decommissioning] When the rig is to be shelved for a significant period, a full decommissioning should be performed.  This will ensure that no extra fluids or other corrosive materials are left in the equipment and ready the rig for long-term disuse.
+\end{description}
+
+\section{The server}
+One computer called the \emph{server}\index{server} in the lab is always on and connected to the network.  This computer is running Linux and is very reliable.  Information that is important to the running of the rigs that can not be found in this manual is stored centrally on the server.  Currently the server can be accessed using by navigating to \verb|groa| in windows.  Lab related information, including specific files for each rig, can be found in the directory \verb|lab|.
+
+\section{Matlab control}
+Each rig that is to be run from Matlab has a Simulink model associated with it.  These models can be found on the server.  The model will be named to reflect the rig that it represents.  To use this model, copy the model file to the directory where you will be working on the control of the rig.  From the Simulink model browser, you can open the model file and drag the model within onto a worksheet to start controlling the rigs.  These models have been set up to conform to the following standards:
+\begin{itemize}\index{rig models!standards}
+	\item All final control elements are activated from 0 to 1, in other words from 0\% to 100\%.  
+	\item Thermocouples output temperature in \deg Celsius.
+	\item Flow meters output flow in units that are specific to the rig, usually to correspond with guages on the rigs.
+	\item Level meters output level in mm liquid
+\end{itemize}
+
+\input{rigacetone}
+\input{rigph}
+\input{rigtemp}
+\input{riglevelflow}
+\input{rigdist}
